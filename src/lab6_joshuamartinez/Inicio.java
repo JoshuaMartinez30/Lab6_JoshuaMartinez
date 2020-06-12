@@ -1,7 +1,23 @@
 package lab6_joshuamartinez;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 public class Inicio extends javax.swing.JFrame {
+    ArrayList<SeresVivos> lista = new ArrayList();
+    Universo u = new Universo("./");
+    
     public Inicio() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -13,21 +29,398 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JD_Agregar = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        tf_Nombre = new javax.swing.JTextField();
+        tf_Año = new javax.swing.JTextField();
+        jpi_Poder = new javax.swing.JSpinner();
+        tf_Planeta = new javax.swing.JTextField();
+        cboRaza = new javax.swing.JComboBox<>();
+        btnAgregar = new javax.swing.JButton();
+        JD_Modificar = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        tf_Nombre1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        tf_Planeta1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        cboRaza1 = new javax.swing.JComboBox<>();
+        jpi_Poder1 = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        tf_Año1 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnModificar = new javax.swing.JButton();
+        JD_Eliminar = new javax.swing.JDialog();
+        JD_Abrir = new javax.swing.JDialog();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jmi_CrearUniverso = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jmi_Agregar = new javax.swing.JMenuItem();
+        jmi_Modificar = new javax.swing.JMenuItem();
+        jmi_Eliminar = new javax.swing.JMenuItem();
+        jmi_Abrir = new javax.swing.JMenuItem();
+        jmi_Salir = new javax.swing.JMenuItem();
+
+        jLabel1.setText("Nombre");
+
+        jLabel2.setText("Poder");
+
+        jLabel3.setText("Año");
+
+        jLabel4.setText("Raza");
+
+        jLabel5.setText("Planeta");
+
+        jpi_Poder.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+
+        cboRaza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humano", "amanto" }));
+
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JD_AgregarLayout = new javax.swing.GroupLayout(JD_Agregar.getContentPane());
+        JD_Agregar.getContentPane().setLayout(JD_AgregarLayout);
+        JD_AgregarLayout.setHorizontalGroup(
+            JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_AgregarLayout.createSequentialGroup()
+                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_AgregarLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(JD_AgregarLayout.createSequentialGroup()
+                                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jpi_Poder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(JD_AgregarLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_Año, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(54, 54, 54)
+                        .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_Planeta)
+                            .addComponent(cboRaza, 0, 170, Short.MAX_VALUE)))
+                    .addGroup(JD_AgregarLayout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        JD_AgregarLayout.setVerticalGroup(
+            JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_AgregarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_Planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jpi_Poder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboRaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_Año, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jLabel6.setText("Nombre");
+
+        jLabel7.setText("Planeta");
+
+        jLabel8.setText("Raza");
+
+        cboRaza1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humano", "amanto" }));
+
+        jpi_Poder1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+
+        jLabel9.setText("Poder");
+
+        jLabel10.setText("Año");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Poder", "Año", "Planeta", "Raza"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        btnModificar.setText("Modificar");
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JD_ModificarLayout = new javax.swing.GroupLayout(JD_Modificar.getContentPane());
+        JD_Modificar.getContentPane().setLayout(JD_ModificarLayout);
+        JD_ModificarLayout.setHorizontalGroup(
+            JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_ModificarLayout.createSequentialGroup()
+                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_ModificarLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(JD_ModificarLayout.createSequentialGroup()
+                                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel9))
+                                .addGap(18, 18, 18)
+                                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jpi_Poder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_Nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(JD_ModificarLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_Año1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(54, 54, 54)
+                        .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_Planeta1)
+                            .addComponent(cboRaza1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JD_ModificarLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_ModificarLayout.createSequentialGroup()
+                        .addGap(312, 312, 312)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        JD_ModificarLayout.setVerticalGroup(
+            JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_ModificarLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(tf_Nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_Planeta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jpi_Poder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboRaza1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(57, 57, 57)
+                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tf_Año1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout JD_EliminarLayout = new javax.swing.GroupLayout(JD_Eliminar.getContentPane());
+        JD_Eliminar.getContentPane().setLayout(JD_EliminarLayout);
+        JD_EliminarLayout.setHorizontalGroup(
+            JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        JD_EliminarLayout.setVerticalGroup(
+            JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout JD_AbrirLayout = new javax.swing.GroupLayout(JD_Abrir.getContentPane());
+        JD_Abrir.getContentPane().setLayout(JD_AbrirLayout);
+        JD_AbrirLayout.setHorizontalGroup(
+            JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        JD_AbrirLayout.setVerticalGroup(
+            JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jMenu1.setText("Anime");
+
+        jmi_CrearUniverso.setText("Crear Universo");
+        jmi_CrearUniverso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_CrearUniversoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_CrearUniverso);
+
+        jMenu2.setText("Seres Vivos");
+
+        jmi_Agregar.setText("Agregar");
+        jmi_Agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_AgregarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_Agregar);
+
+        jmi_Modificar.setText("Modificar");
+        jmi_Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_ModificarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_Modificar);
+
+        jmi_Eliminar.setText("Eliminar");
+        jMenu2.add(jmi_Eliminar);
+
+        jMenu1.add(jMenu2);
+
+        jmi_Abrir.setText("Abrir");
+        jmi_Abrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_AbrirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_Abrir);
+
+        jmi_Salir.setText("Salir");
+        jmi_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_SalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_Salir);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGap(0, 457, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmi_ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ModificarActionPerformed
+        JD_Modificar.setModal(true);
+        JD_Modificar.pack();
+        JD_Modificar.setLocationRelativeTo(null);
+        JD_Modificar.setVisible(true);
+    }//GEN-LAST:event_jmi_ModificarActionPerformed
+
+    private void jmi_AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AbrirActionPerformed
+        JD_Abrir.setModal(true);
+        JD_Abrir.pack();
+        JD_Abrir.setLocationRelativeTo(null);
+        JD_Abrir.setVisible(true);
+    }//GEN-LAST:event_jmi_AbrirActionPerformed
+
+    private void jmi_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jmi_SalirActionPerformed
+
+    private void jmi_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AgregarActionPerformed
+        JD_Agregar.setModal(true);
+        JD_Agregar.pack();
+        JD_Agregar.setLocationRelativeTo(null);
+        JD_Agregar.setVisible(true);
+    }//GEN-LAST:event_jmi_AgregarActionPerformed
+
+    private void jmi_CrearUniversoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_CrearUniversoActionPerformed
+        if (lista.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No ah creado ningun ser vivo");
+        }else{
+        String nombre, file="";
+        nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Universo");
+        File archivo = null;
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            file+="./"+nombre+".txt";
+            archivo = new File(file);
+            fw = new FileWriter(archivo, true);
+            bw = new BufferedWriter(fw);
+            for (int i = 0; i < lista.size(); i++) {
+                bw.write(lista.get(i).getNombre() + "|");
+                bw.write(lista.get(i).getPoder() + "|");
+                bw.write(lista.get(i).getAño() + "|");
+                bw.write(lista.get(i).getPlaneta() + "|");
+                bw.write(lista.get(i).getRaza() + "\n");
+            }
+            bw.flush();
+            lista.removeAll(lista);
+            JOptionPane.showMessageDialog(this, "Se guardo correctamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error, No se guardo ");
+        }
+        try {
+            bw.close();
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        
+    }//GEN-LAST:event_jmi_CrearUniversoActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        String nombre, planeta, raza;
+        int poder, año;
+        try {
+            nombre = tf_Nombre.getText();
+            poder = Integer.parseInt(jpi_Poder.getValue().toString());
+            año = Integer.parseInt(tf_Año.getText());
+            planeta = tf_Planeta.getText();
+            raza = cboRaza.getSelectedItem().toString();
+            SeresVivos s = new SeresVivos(nombre, poder, año, planeta, raza);
+            lista.add(s);
+            u.getSeres().add(s);
+            tf_Nombre.setText("");
+            tf_Planeta.setText("");
+            tf_Año.setText("");
+            cboRaza.setSelectedIndex(0);
+            jpi_Poder.setValue(0);
+            JOptionPane.showMessageDialog(JD_Agregar, "Se agrego correctamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(JD_Agregar, "Error, no se creo");
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
+        
+    }//GEN-LAST:event_btnModificarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -65,5 +458,42 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog JD_Abrir;
+    private javax.swing.JDialog JD_Agregar;
+    private javax.swing.JDialog JD_Eliminar;
+    private javax.swing.JDialog JD_Modificar;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JComboBox<String> cboRaza;
+    private javax.swing.JComboBox<String> cboRaza1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JMenuItem jmi_Abrir;
+    private javax.swing.JMenuItem jmi_Agregar;
+    private javax.swing.JMenuItem jmi_CrearUniverso;
+    private javax.swing.JMenuItem jmi_Eliminar;
+    private javax.swing.JMenuItem jmi_Modificar;
+    private javax.swing.JMenuItem jmi_Salir;
+    private javax.swing.JSpinner jpi_Poder;
+    private javax.swing.JSpinner jpi_Poder1;
+    private javax.swing.JTextField tf_Año;
+    private javax.swing.JTextField tf_Año1;
+    private javax.swing.JTextField tf_Nombre;
+    private javax.swing.JTextField tf_Nombre1;
+    private javax.swing.JTextField tf_Planeta;
+    private javax.swing.JTextField tf_Planeta1;
     // End of variables declaration//GEN-END:variables
 }
