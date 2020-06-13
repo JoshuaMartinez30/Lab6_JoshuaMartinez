@@ -17,6 +17,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Inicio extends javax.swing.JFrame {
 
+    /*NOTA:
+    heee al momento de abrir archivos, no puede modificar y eliminar. solo listarlos
+    Modificar y Eliminar Funciona Solo cuando creo Seres vivos...
+    */
+    
     ArrayList<SeresVivos> lista = new ArrayList();
     Universo u = new Universo("./");
 
