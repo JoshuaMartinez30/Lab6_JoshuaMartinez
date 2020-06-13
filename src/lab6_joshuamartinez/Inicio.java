@@ -20,6 +20,8 @@ public class Inicio extends javax.swing.JFrame {
     /*NOTA:
     heee al momento de abrir archivos, no puede modificar y eliminar. solo listarlos
     Modificar y Eliminar Funciona Solo cuando creo Seres vivos...
+    Si quiere agregar nuevos seres vivos a Gintama o prueba..
+    Tiene que crear nuevos seres vivos y luegos guardarlos con el mismo nombre del Universo...
     */
     
     ArrayList<SeresVivos> lista = new ArrayList();
@@ -51,6 +53,7 @@ public class Inicio extends javax.swing.JFrame {
         tf_Planeta = new javax.swing.JTextField();
         cboRaza = new javax.swing.JComboBox<>();
         btnAgregar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         JD_Modificar = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         tf_Nombre1 = new javax.swing.JTextField();
@@ -65,14 +68,17 @@ public class Inicio extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         JD_Eliminar = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         JD_Abrir = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
         jta_Listar = new javax.swing.JTextArea();
         btnAbrir = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_CrearUniverso = new javax.swing.JMenuItem();
@@ -83,19 +89,36 @@ public class Inicio extends javax.swing.JFrame {
         jmi_Abrir = new javax.swing.JMenuItem();
         jmi_Salir = new javax.swing.JMenuItem();
 
+        JD_Agregar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre");
+        JD_Agregar.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 43, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Poder");
+        JD_Agregar.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 109, -1, -1));
 
-        jLabel3.setText("Año");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Años");
+        JD_Agregar.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 186, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Raza");
+        JD_Agregar.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 109, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Planeta");
+        JD_Agregar.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 43, -1, -1));
+        JD_Agregar.getContentPane().add(tf_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 40, 164, -1));
+        JD_Agregar.getContentPane().add(tf_Año, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 183, 164, -1));
 
         jpi_Poder.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        JD_Agregar.getContentPane().add(jpi_Poder, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 106, -1, -1));
+        JD_Agregar.getContentPane().add(tf_Planeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 40, 170, -1));
 
         cboRaza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humano", "amanto" }));
+        JD_Agregar.getContentPane().add(cboRaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 106, 170, -1));
 
         btnAgregar.setText("Crear");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,78 +126,41 @@ public class Inicio extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
+        JD_Agregar.getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 273, 89, 35));
 
-        javax.swing.GroupLayout JD_AgregarLayout = new javax.swing.GroupLayout(JD_Agregar.getContentPane());
-        JD_Agregar.getContentPane().setLayout(JD_AgregarLayout);
-        JD_AgregarLayout.setHorizontalGroup(
-            JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_AgregarLayout.createSequentialGroup()
-                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JD_AgregarLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(JD_AgregarLayout.createSequentialGroup()
-                                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jpi_Poder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(JD_AgregarLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tf_Año, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54)
-                        .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_Planeta)
-                            .addComponent(cboRaza, 0, 170, Short.MAX_VALUE)))
-                    .addGroup(JD_AgregarLayout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
-        JD_AgregarLayout.setVerticalGroup(
-            JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_AgregarLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel5)
-                    .addComponent(tf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_Planeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jpi_Poder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboRaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(JD_AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tf_Año, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/Fondo.png"))); // NOI18N
+        JD_Agregar.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, 0, 800, 480));
 
+        JD_Modificar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setText("Nombre");
+        JD_Modificar.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        JD_Modificar.getContentPane().add(tf_Nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 164, -1));
 
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setText("Planeta");
+        JD_Modificar.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, -1, -1));
+        JD_Modificar.getContentPane().add(tf_Planeta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 170, -1));
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setText("Raza");
+        JD_Modificar.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
 
         cboRaza1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humano", "amanto" }));
+        JD_Modificar.getContentPane().add(cboRaza1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 170, -1));
 
         jpi_Poder1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 10, 1));
+        JD_Modificar.getContentPane().add(jpi_Poder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel9.setText("Poder");
+        JD_Modificar.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel10.setText("Año");
+        JD_Modificar.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        JD_Modificar.getContentPane().add(tf_Año1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 164, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,75 +177,20 @@ public class Inicio extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        JD_Modificar.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 713, 200));
+
         btnModificar.setText("Modificar");
         btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnModificarMouseClicked(evt);
             }
         });
+        JD_Modificar.getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 238, 117, 41));
 
-        javax.swing.GroupLayout JD_ModificarLayout = new javax.swing.GroupLayout(JD_Modificar.getContentPane());
-        JD_Modificar.getContentPane().setLayout(JD_ModificarLayout);
-        JD_ModificarLayout.setHorizontalGroup(
-            JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_ModificarLayout.createSequentialGroup()
-                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JD_ModificarLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(JD_ModificarLayout.createSequentialGroup()
-                                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel9))
-                                .addGap(18, 18, 18)
-                                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jpi_Poder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_Nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(JD_ModificarLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tf_Año1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54)
-                        .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_Planeta1)
-                            .addComponent(cboRaza1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JD_ModificarLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JD_ModificarLayout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        JD_ModificarLayout.setVerticalGroup(
-            JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_ModificarLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(tf_Nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_Planeta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jpi_Poder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboRaza1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addGroup(JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(tf_Año1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
-        );
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/ddc153674b18090dd27b4ed0ccf7da3b.jpg"))); // NOI18N
+        JD_Modificar.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 660));
+
+        JD_Eliminar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -271,40 +202,26 @@ public class Inicio extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        JD_Eliminar.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 570, 288));
+
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
+        JD_Eliminar.getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 341, 112, 33));
 
-        javax.swing.GroupLayout JD_EliminarLayout = new javax.swing.GroupLayout(JD_Eliminar.getContentPane());
-        JD_Eliminar.getContentPane().setLayout(JD_EliminarLayout);
-        JD_EliminarLayout.setHorizontalGroup(
-            JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_EliminarLayout.createSequentialGroup()
-                .addGroup(JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JD_EliminarLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JD_EliminarLayout.createSequentialGroup()
-                        .addGap(313, 313, 313)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        JD_EliminarLayout.setVerticalGroup(
-            JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_EliminarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/anime-gintama-tsukuyo-gintama-wallpaper-preview.jpg"))); // NOI18N
+        JD_Eliminar.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 410));
+
+        JD_Abrir.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jta_Listar.setColumns(20);
         jta_Listar.setRows(5);
         jScrollPane3.setViewportView(jta_Listar);
+
+        JD_Abrir.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 35, 514, 327));
 
         btnAbrir.setText("Abrir");
         btnAbrir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,30 +229,10 @@ public class Inicio extends javax.swing.JFrame {
                 btnAbrirMouseClicked(evt);
             }
         });
+        JD_Abrir.getContentPane().add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 414, 79, 40));
 
-        javax.swing.GroupLayout JD_AbrirLayout = new javax.swing.GroupLayout(JD_Abrir.getContentPane());
-        JD_Abrir.getContentPane().setLayout(JD_AbrirLayout);
-        JD_AbrirLayout.setHorizontalGroup(
-            JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_AbrirLayout.createSequentialGroup()
-                .addGroup(JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JD_AbrirLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JD_AbrirLayout.createSequentialGroup()
-                        .addGap(306, 306, 306)
-                        .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
-        );
-        JD_AbrirLayout.setVerticalGroup(
-            JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JD_AbrirLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/Fondo.png"))); // NOI18N
+        JD_Abrir.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, 830, 510));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -671,6 +568,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboRaza1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
