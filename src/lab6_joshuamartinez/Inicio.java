@@ -1,10 +1,14 @@
 package lab6_joshuamartinez;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -12,9 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Inicio extends javax.swing.JFrame {
+
     ArrayList<SeresVivos> lista = new ArrayList();
     Universo u = new Universo("./");
-    
+
     public Inicio() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -56,7 +61,13 @@ public class Inicio extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
         JD_Eliminar = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JButton();
         JD_Abrir = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jta_Listar = new javax.swing.JTextArea();
+        btnAbrir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_CrearUniverso = new javax.swing.JMenuItem();
@@ -168,6 +179,11 @@ public class Inicio extends javax.swing.JFrame {
                 "Nombre", "Poder", "Año", "Planeta", "Raza"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         btnModificar.setText("Modificar");
@@ -240,26 +256,80 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap(129, Short.MAX_VALUE))
         );
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Poder", "Año", "Planeta", "Raza"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JD_EliminarLayout = new javax.swing.GroupLayout(JD_Eliminar.getContentPane());
         JD_Eliminar.getContentPane().setLayout(JD_EliminarLayout);
         JD_EliminarLayout.setHorizontalGroup(
             JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(JD_EliminarLayout.createSequentialGroup()
+                .addGroup(JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_EliminarLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_EliminarLayout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         JD_EliminarLayout.setVerticalGroup(
             JD_EliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(JD_EliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
+
+        jta_Listar.setColumns(20);
+        jta_Listar.setRows(5);
+        jScrollPane3.setViewportView(jta_Listar);
+
+        btnAbrir.setText("Abrir");
+        btnAbrir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAbrirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JD_AbrirLayout = new javax.swing.GroupLayout(JD_Abrir.getContentPane());
         JD_Abrir.getContentPane().setLayout(JD_AbrirLayout);
         JD_AbrirLayout.setHorizontalGroup(
             JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(JD_AbrirLayout.createSequentialGroup()
+                .addGroup(JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_AbrirLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_AbrirLayout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         JD_AbrirLayout.setVerticalGroup(
             JD_AbrirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(JD_AbrirLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -293,6 +363,11 @@ public class Inicio extends javax.swing.JFrame {
         jMenu2.add(jmi_Modificar);
 
         jmi_Eliminar.setText("Eliminar");
+        jmi_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_EliminarActionPerformed(evt);
+            }
+        });
         jMenu2.add(jmi_Eliminar);
 
         jMenu1.add(jMenu2);
@@ -343,6 +418,7 @@ public class Inicio extends javax.swing.JFrame {
         JD_Abrir.pack();
         JD_Abrir.setLocationRelativeTo(null);
         JD_Abrir.setVisible(true);
+        jta_Listar.setText("");
     }//GEN-LAST:event_jmi_AbrirActionPerformed
 
     private void jmi_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_SalirActionPerformed
@@ -359,68 +435,188 @@ public class Inicio extends javax.swing.JFrame {
     private void jmi_CrearUniversoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_CrearUniversoActionPerformed
         if (lista.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No ah creado ningun ser vivo");
-        }else{
-        String nombre, file="";
-        nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Universo");
-        File archivo = null;
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        try {
-            file+="./"+nombre+".txt";
-            archivo = new File(file);
-            fw = new FileWriter(archivo, true);
-            bw = new BufferedWriter(fw);
-            for (int i = 0; i < lista.size(); i++) {
-                bw.write(lista.get(i).getNombre() + "|");
-                bw.write(lista.get(i).getPoder() + "|");
-                bw.write(lista.get(i).getAño() + "|");
-                bw.write(lista.get(i).getPlaneta() + "|");
-                bw.write(lista.get(i).getRaza() + "\n");
+        } else {
+            String nombre, file = "";
+            nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Universo");
+            File archivo = null;
+            FileWriter fw = null;
+            BufferedWriter bw = null;
+            try {
+                file += "./" + nombre + ".txt";
+                archivo = new File(file);
+                fw = new FileWriter(archivo, true);
+                bw = new BufferedWriter(fw);
+                for (int i = 0; i < lista.size(); i++) {
+                    bw.write(lista.get(i).getNombre() + ";");
+                    bw.write(lista.get(i).getPoder() + ";");
+                    bw.write(lista.get(i).getAño() + ";");
+                    bw.write(lista.get(i).getPlaneta() + ";");
+                    bw.write(lista.get(i).getRaza() + "\n");
+                }
+                bw.flush();
+                lista.removeAll(lista);
+                JOptionPane.showMessageDialog(this, "Se guardo correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Error, No se guardo ");
             }
-            bw.flush();
-            lista.removeAll(lista);
-            JOptionPane.showMessageDialog(this, "Se guardo correctamente");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error, No se guardo ");
+            try {
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        try {
-            bw.close();
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Poder", "Año", "Planeta", "Raza"
+                }
+        ));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{
+                    "Nombre", "Poder", "Año", "Planeta", "Raza"
+                }
+        ));
+
     }//GEN-LAST:event_jmi_CrearUniversoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String nombre, planeta, raza;
         int poder, año;
-        try {
-            nombre = tf_Nombre.getText();
-            poder = Integer.parseInt(jpi_Poder.getValue().toString());
-            año = Integer.parseInt(tf_Año.getText());
-            planeta = tf_Planeta.getText();
-            raza = cboRaza.getSelectedItem().toString();
-            SeresVivos s = new SeresVivos(nombre, poder, año, planeta, raza);
-            lista.add(s);
-            u.getSeres().add(s);
-            tf_Nombre.setText("");
-            tf_Planeta.setText("");
-            tf_Año.setText("");
-            cboRaza.setSelectedIndex(0);
-            jpi_Poder.setValue(0);
-            JOptionPane.showMessageDialog(JD_Agregar, "Se agrego correctamente");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(JD_Agregar, "Error, no se creo");
+        if (tf_Nombre.getText().isEmpty() || tf_Año.getText().isEmpty() || tf_Planeta.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(JD_Agregar, "Por favor, llene los campos vacios");
+        } else {
+            try {
+                nombre = tf_Nombre.getText();
+                poder = Integer.parseInt(jpi_Poder.getValue().toString());
+                año = Integer.parseInt(tf_Año.getText());
+                planeta = tf_Planeta.getText();
+                raza = cboRaza.getSelectedItem().toString();
+                SeresVivos s = new SeresVivos(nombre, poder, año, planeta, raza);
+                lista.add(s);
+                u.getSeres().add(s);
+                tf_Nombre.setText("");
+                tf_Planeta.setText("");
+                tf_Año.setText("");
+                cboRaza.setSelectedIndex(0);
+                jpi_Poder.setValue(0);
+                JOptionPane.showMessageDialog(JD_Agregar, "Se agrego correctamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(JD_Agregar, "Error, no se creo");
+            }
         }
+        mostrar();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
-        
+        int i = jTable1.getSelectedRow();
+        if (tf_Nombre1.getText().isEmpty() || tf_Año1.getText().isEmpty() || tf_Planeta1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(JD_Agregar, "Por favor, llene los campos vacios");
+        } else {
+            lista.get(i).setNombre(tf_Nombre1.getText());
+            lista.get(i).setPoder(Integer.parseInt(jpi_Poder1.getValue().toString()));
+            lista.get(i).setAño(Integer.parseInt(tf_Año1.getText()));
+            lista.get(i).setPlaneta(tf_Planeta1.getText());
+            lista.get(i).setRaza(cboRaza1.getSelectedItem().toString());
+            tf_Nombre1.setText("");
+            jpi_Poder1.setValue(0);
+            tf_Año1.setText("");
+            tf_Planeta1.setText("");
+            cboRaza1.setSelectedIndex(0);
+        }
+        mostrar();
     }//GEN-LAST:event_btnModificarMouseClicked
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        for (int i = 0; i < lista.size(); i++) {
+            lista.remove(i);
+        }
+        JOptionPane.showMessageDialog(JD_Eliminar, "Eliminado correctamente");
+        mostrar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jmi_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_EliminarActionPerformed
+        JD_Eliminar.setModal(true);
+        JD_Eliminar.pack();
+        JD_Eliminar.setLocationRelativeTo(null);
+        JD_Eliminar.setVisible(true);
+    }//GEN-LAST:event_jmi_EliminarActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int seleccion = jTable1.getSelectedRow();
+        tf_Nombre1.setText(jTable1.getValueAt(seleccion, 0).toString());
+        tf_Año1.setText(jTable1.getValueAt(seleccion, 2).toString());
+        tf_Planeta1.setText(jTable1.getValueAt(seleccion, 3).toString());
+        cboRaza1.setSelectedItem(jTable1.getValueAt(seleccion, 4).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void btnAbrirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAbrirMouseClicked
+        Scanner sc = null;
+        File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto", "txt");
+            jfc.setFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                fr = new FileReader(fichero);
+                br = new BufferedReader(fr);
+                String linea;
+                jta_Listar.setText("");
+                while((linea = br.readLine())!=null){
+                    jta_Listar.append(linea);
+                    jta_Listar.append("\n");
+                }
+                sc = new Scanner(fichero);
+                sc.useDelimiter(";");
+                while (sc.hasNext()) {
+                    lista.add(new SeresVivos(sc.next(), sc.nextInt(), sc.nextInt(), sc.next(), sc.next()));
+                }
+                String Matriz[][] = new String[lista.size()][6];
+                for (int i = 0; i < lista.size(); i++) {
+                    System.out.println(Matriz[i][0] = lista.get(i).getNombre());
+                    System.out.println(Matriz[i][1] = Integer.toString(lista.get(i).getPoder()));
+                    System.out.println(Matriz[i][2] = Integer.toString(lista.get(i).getAño()));
+                    System.out.println(Matriz[i][3] = lista.get(i).getPlaneta());
+                    System.out.println(Matriz[i][3] = lista.get(i).getRaza());
+                }
+                fichero.delete();
+                mostrar();
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnAbrirMouseClicked
+
+    public void mostrar() {
+        String Matriz[][] = new String[lista.size()][5];
+        for (int i = 0; i < lista.size(); i++) {
+            Matriz[i][0] = lista.get(i).getNombre();
+            Matriz[i][1] = Integer.toString(lista.get(i).getPoder());
+            Matriz[i][2] = Integer.toString(lista.get(i).getAño());
+            Matriz[i][3] = lista.get(i).getPlaneta();
+            Matriz[i][4] = lista.get(i).getRaza();
+        }
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                Matriz,
+                new String[]{
+                    "Nombre", "Poder", "Año", "Planeta", "Raza"
+                }
+        ));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+                Matriz,
+                new String[]{
+                    "Nombre", "Poder", "Año", "Planeta", "Raza"
+                }
+        ));
+    }
 
     /**
      * @param args the command line arguments
@@ -462,7 +658,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JDialog JD_Agregar;
     private javax.swing.JDialog JD_Eliminar;
     private javax.swing.JDialog JD_Modificar;
+    private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cboRaza;
     private javax.swing.JComboBox<String> cboRaza1;
@@ -480,7 +678,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JMenuItem jmi_Abrir;
     private javax.swing.JMenuItem jmi_Agregar;
     private javax.swing.JMenuItem jmi_CrearUniverso;
@@ -489,6 +690,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_Salir;
     private javax.swing.JSpinner jpi_Poder;
     private javax.swing.JSpinner jpi_Poder1;
+    private javax.swing.JTextArea jta_Listar;
     private javax.swing.JTextField tf_Año;
     private javax.swing.JTextField tf_Año1;
     private javax.swing.JTextField tf_Nombre;
