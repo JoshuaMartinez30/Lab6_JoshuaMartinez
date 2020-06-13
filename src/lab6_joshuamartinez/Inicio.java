@@ -92,7 +92,7 @@ public class Inicio extends javax.swing.JFrame {
 
         cboRaza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humano", "amanto" }));
 
-        btnAgregar.setText("Agregar");
+        btnAgregar.setText("Crear");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -346,7 +346,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenu2.setText("Seres Vivos");
 
-        jmi_Agregar.setText("Agregar");
+        jmi_Agregar.setText("Crear");
         jmi_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_AgregarActionPerformed(evt);
@@ -447,10 +447,10 @@ public class Inicio extends javax.swing.JFrame {
                 fw = new FileWriter(archivo, true);
                 bw = new BufferedWriter(fw);
                 for (int i = 0; i < lista.size(); i++) {
-                    bw.write(lista.get(i).getNombre() + ";");
-                    bw.write(lista.get(i).getPoder() + ";");
-                    bw.write(lista.get(i).getAño() + ";");
-                    bw.write(lista.get(i).getPlaneta() + ";");
+                    bw.write(lista.get(i).getNombre() + "|");
+                    bw.write(lista.get(i).getPoder() + "|");
+                    bw.write(lista.get(i).getAño() + "|");
+                    bw.write(lista.get(i).getPlaneta() + "|");
                     bw.write(lista.get(i).getRaza() + "\n");
                 }
                 bw.flush();
@@ -574,7 +574,7 @@ public class Inicio extends javax.swing.JFrame {
                     jta_Listar.append("\n");
                 }
                 sc = new Scanner(fichero);
-                sc.useDelimiter(";");
+                sc.useDelimiter("|");
                 while (sc.hasNext()) {
                     lista.add(new SeresVivos(sc.next(), sc.nextInt(), sc.nextInt(), sc.next(), sc.next()));
                 }

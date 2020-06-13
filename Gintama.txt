@@ -1,0 +1,10 @@
+Kagura|5|15|Tierra|Humano
+Okita|4|20|Tierra|Humano
+Shoyo Yoshida|7|16|Tierra|Humano
+Gintoki Sakata|5|22|Tierra|Humano
+Shinsuke Takasugi|5|23|Tierra|Humano
+Kotaro|7|25|Tierra|Humano
+Shinoachi Shimura|5|15|Tierra|Humano
+Toshiro Hijikata|8|22|Tierra|Humano
+Kondo Isao|9|25|Tierra Nakamura|Humano
+Tae Shimura|4|14|Tierra|Humano
